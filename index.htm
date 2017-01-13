@@ -7,109 +7,100 @@
 		<meta name="author" content="Andela-BootCapm Team1" />
 		<title> Room Checker App</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Merriweather|Rubik" rel="stylesheet">
-		<script src="main.js"></script>
+		<script type="text/javascript" src="main.js" ></script>
 	</head>
-	<body>
-		<header class="branch group">
+	<body onload="showAvalRoom()">
+	   <div class="andela">
+	   		 <a href="https://andela-bootcamp.slack.com/" >Andela  <br /> Bootcamp</a>
+	   </div>
+	   
+	   <div class= "roomCheck">
+	   		Room Check 
+			<button type="button" style="border-radius:3px" onclick="checkout()" id="btnCheckout">Check Out </button>
 
-     <ul class="nav">
-        
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">Profile</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
-        <li id="search">
-            <form action="" method="get">
-                <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-                <input type="button" name="search_button" id="search_button"></a>
-            </form>
-        </li>
-        
-      </ul>
-
-
-        <h1 class="logo">
-          <a href="#">Andela <br> Bootcamp</a>
-        </h1>
-        	<div class="checkbox">
-    			<input type="checkbox" name="checkbox">You are in room: 
-    		</div>
-        <h1 class="tagline">Room Checker App
-          <hr/>
-        </h1>
-      
-
-    </header>	
+			<hr />
+	   </div>
+	   <p class= "result" id="result"> you are welcome  </p>
+       
+     
     <br />
     <br />
     <br />
-    
-    <form class="rooms" action="#" method="post"> 
     <div class="room-group">
+	<br />
 	    <section class="sleeping">
-
-	      <h2>Sleeping Rooms</h2>
-
-	      <p>Book for available rooms. </p>
-	      <input type="radio" name="sleeping" value="room85" >Room 85	<br />
-	      <input type="radio" name="sleeping" value="room86">Room 86	<br />
-	      <input type="radio" name="sleeping" value="room87">Room 87	<br />
-	      <input type="radio" name="sleeping" value="room88">Room 88	<br />
+		
+			<fieldset>
+				<legend> Sleeping Rooms </legend>
+				
+				<button type="button" style="border-radius:3px" onclick="checkin('1','Sleeping Room')" id="1"> Room 1 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('2','Sleeping Room')" id="2"> Room 2 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('3','Sleeping Room')" id="3"> Room 3 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('4','Sleeping Room')" id="4"> Room 4 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('5','Sleeping Room')" id="5"> Room 5 </button>
+				
+			</fieldset>
+				
+	      <h2></h2>
 
 	    </section>
 	    <section class="working">
 
-	      <h2>Working Rooms</h2>
-
-	      <p>Book for available rooms. </p>
-	      <input type="radio" name="working" value="room89">Room 89 <br />
-	      <input type="radio" name="working" value="room90">Room 90	<br />
-	      <input type="radio" name="working" value="room91">Room 91	<br />
-	      <input type="radio" name="working" value="room92">Room 92	<br />
-
+	      <fieldset>
+				<legend> Working Rooms </legend>
+				
+				<button type="button" style="border-radius:3px" onclick="checkin('6','Working Room')" id="6"> Room 1 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('7','Working Room')" id="7"> Room 2 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('8','Working Room')" id="8"> Room 3 </button>	
+				<button type="button" style="border-radius:3px" onclick="checkin('9','Working Room')" id="9"> Room 4 </button>	
+				<button type="button" style="border-radius:3px" onclick="checkin('10','Working Room')" id="10"> Room 5 </button>
+				
+			</fieldset>
 
 	    </section>
 	    <section class="meetings">
 
-	      <h2>Meeting Rooms</h2>
-
-	      <p>Book for available rooms. </p>
-	      <input type="radio" name="meetings" value="room93">Room 93 	<br />
-	      <input type="radio" name="meetings" value="room94">Room 94	<br />
-	      <input type="radio" name="meetings" value="room95">Room 95	<br />
-	      <input type="radio" name="meetings" value="room96">Room 96	<br />
+	      <fieldset>
+				<legend> Meetings Rooms </legend>
+				
+				<button type="button" style="border-radius:3px" onclick="checkin('11','Meetings Room')" id="11"> Room 1 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('12','Meetings Room')" id="12"> Room 2 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('13','Meetings Room')" id="13"> Room 3 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('14','Meetings Room')" id="14"> Room 4 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('15','Meetings Room')" id="15"> Room 5 </button>
+				
+			</fieldset>
 
 	    </section>
 	    <section class="games">
 
-	      <h2>Games Rooms</h2>
-
-	      <p>Book for available rooms. </p>
-	       <input type="radio" name="games" value="room97" onclick=search("room97"); />Room 97 	<br />
-	      <input type="radio" name="games" value="room98" />Room 98	<br />
-	      <input type="radio" name="games" value="room99" />Room 99	<br />
-	      <input type="radio" name="games" value="room100" />Room 100	<br />
-
+	      <fieldset>
+				<legend> Games Rooms </legend>
+				
+				<button type="button" style="border-radius:3px" onclick="checkin('16','Games Room')" id="16" > Room 1 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('17','Games Room')" id="17"> Room 2 </button>
+				<button type="button" style="border-radius:3px" onclick="checkin('18','Games Room')" id="18"> Room 3 </button>	
+				<button type="button" style="border-radius:3px" onclick="checkin('19','Games Room')" id="19"> Room 4 </button>	
+				<button type="button" style="border-radius:3px" onclick="checkin('20','Games Room')" id="20"> Room 5 </button>
+				
+			</fieldset>
 
 	    </section>
 	    <section class="quitetime">
 
-	      <h2>Quite Time Rooms</h2>
-	      <p>Book for available rooms. </p>
-	       <input type="radio" name="quitetime" value="room101">Room 101 	<br />
-	      <input type="radio" name="quitetime" value="room102">Room 102	<br />
-	      <input type="radio" name="quitetime" value="room103">Room 103	<br />
-	      <input type="radio" name="quitetime" value="romm104">Room 104	<br />
+	      <fieldset>
+				<legend> Quitetime Rooms </legend>
+				
+				<button type="button" style="border-radius:3px" onclick="checkin('21','Quitetime Room')" id="21" > Room 1 </button> <br />
+				<button type="button" style="border-radius:3px" onclick="checkin('22','Quitetime Room')" id="22"> Room 2 </button>  <br />
+				<button type="button" style="border-radius:3px" onclick="checkin('23','Quitetime Room')" id="23"> Room 3 </button>	 <br />		
+				<button type="button" style="border-radius:3px" onclick="checkin('24','Quitetime Room')" id="24"> Room 4 </button> <br />
+				<button type="button" style="border-radius:3px" onclick="checkin('25','Quitetime Room')" id="25"> Room 5 </button>  <br />
+				
+			</fieldset>
 
 	    </section>
 	   </div>
-    </form>
     <br />
     <br />
     <div class="clear-fix"></div>
