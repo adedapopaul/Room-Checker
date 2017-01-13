@@ -1,4 +1,4 @@
-function getCookie(cname) {
+function getLocalHistory(cname) {
 
     if ( localStorage.getItem(cname)) {
         return null
@@ -9,22 +9,22 @@ function getCookie(cname) {
     
 }
 
-function setCookie(cname, cvalue) {
+function setLocalHistory(cname, cvalue) {
     localStorage.setItem(cname, cvalue);
 }
 
 function checkout() {
-	setCookie("userRoom" ,null);
+    setLocalHistory("userRoom" ,null);
     location.reload();
 }
 
 function checkin(roomNo,roomTitle) {
-        var availableRooms =getCookie("availableRooms");
-		if ( !getCookie("userRoom")) {
+        var availableRooms =getLocalHistory("availableRooms");
+        if ( !getLocalHistory("userRoom")) {
                 // alert(roomNo.toString());
                var reply = window.confirm("Do you wish to check out from  " + roomTitle.toString() +   " "+roomNo.toString());
                 if (reply == true) {
-                    setCookie("userRoom" ,roomNo.toString());
+                    setLocalHistory("userRoom" ,roomNo.toString());
                     // to update unavailble rooms
                      if (!availableRooms) {
                         availableRooms = roomNo.toString();
@@ -32,7 +32,7 @@ function checkin(roomNo,roomTitle) {
                         availableRooms += ',' + roomNo.toString();
                      }
                     
-                    setCookie("availableRooms" ,availableRooms.toString());
+                    setLocalHistory("availableRooms" ,availableRooms.toString());
                     document.getElementById('result').innerHTML = "You have successfully check into "  + roomTitle.toString() +  " "+ roomNo.toString();
 
                 }
@@ -42,7 +42,7 @@ function checkin(roomNo,roomTitle) {
                 }
         } else {
                  //alert(roomNo.toString());
-                setCookie("userRoom" ,roomNo.toString());
+                setLocalHistory("userRoom" ,roomNo.toString());
 
                 // to update unavailble rooms
                 if (availableRooms === '') {
@@ -50,22 +50,22 @@ function checkin(roomNo,roomTitle) {
                      } else {
                         availableRooms += ',' + roomNo.toString();
                      }
-                setCookie("availableRooms" ,availableRooms.toString());
+                setLocalHistory("availableRooms" ,availableRooms.toString());
                 document.getElementById('result').innerHTML = "You have successfully check into " + roomTitle.toString() +  " "+ roomNo.toString();
 
         }
         
-			
-			
-	
+            
+            
+    
 }
 
 function showAvalRoom() { 
-    var availableRooms =getCookie("availableRooms") ;
+    var availableRooms =getLocalHistory("availableRooms") ;
                if (availableRooms === '') {
                     availableRooms = '';
                } 
-        //an array for test,
+        //an array to mock the expected list of unavailable rooms
       var availableRoomsToArray =  [1,7,14,20]; //availableRooms.split(",");
       
        if ( availableRoomsToArray.length > 0) {
