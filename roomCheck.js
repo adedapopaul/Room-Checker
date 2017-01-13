@@ -43,7 +43,7 @@ function checkRoom() {
     }
 
     else {
-        document.getElementsByClass("room-group").style.display = "none";
+        document.getElementsByClassName("room-group").style.display = "none";
     }
     // check if cookie is null
     // else return room number
@@ -60,15 +60,7 @@ function checkRoom() {
 function showAvalRoom() {      
         var avalRoom = getCookie(avalRoom).toString();    
       for (var room of avalRoom.split()) 
-        {         
-            document.getElementsByName(room).enable = false ;
-       } 
-};
-
-
-function search(roomno) {
-    var 
-    var avalRooms = getCookie(availableRoom) ;
+         var avalRooms = getCookie(availableRoom) ;
         if (avalRooms === " "){
         setCookie(availableRoom, roomno.toString());
     }
@@ -79,4 +71,5 @@ function search(roomno) {
        setCookie(availableRoom, avalRooms.toString());
     }
     location.reload();
-}f
+}
+
