@@ -1,81 +1,83 @@
 function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
 
-function checkCookie() {
-    var username = getCookie("username");
-    if (username != "") {
-        alert("Welcome again " + username);
+    if ( localStorage.getItem(cname)) {
+        return null
     } else {
-        username = prompt("Please enter your name:", "");
-        if (username != "" && username != null) {
-            setCookie("username", username, 365);
+        return localStorage.getItem(cname).toString();
+    }
+    
+    
+}
+
+function setCookie(cname, cvalue) {
+    localStorage.setItem(cname, cvalue);
+}
+
+function checkout() {
+	setCookie("userRoom" ,null);
+    location.reload();
+}
+
+function checkin(roomNo,roomTitle) {
+        var availableRooms =getCookie("availableRooms");
+		if ( !getCookie("userRoom")) {
+                // alert(roomNo.toString());
+               var reply = window.confirm("Do you wish to check out from  " + roomTitle.toString() +   " "+roomNo.toString());
+                if (reply == true) {
+                    setCookie("userRoom" ,roomNo.toString());
+                    // to update unavailble rooms
+                     if (!availableRooms) {
+                        availableRooms = roomNo.toString();
+                     } else {
+                        availableRooms += ',' + roomNo.toString();
+                     }
+                    
+                    setCookie("availableRooms" ,availableRooms.toString());
+                    document.getElementById('result').innerHTML = "You have successfully check into "  + roomTitle.toString() +  " "+ roomNo.toString();
+
+                }
+                else 
+                {
+                    document.getElementById('result').innerHTML = "You can only stay in a room";
+                }
+        } else {
+                 //alert(roomNo.toString());
+                setCookie("userRoom" ,roomNo.toString());
+
+                // to update unavailble rooms
+                if (availableRooms === '') {
+                        availableRooms = roomNo.toString();
+                     } else {
+                        availableRooms += ',' + roomNo.toString();
+                     }
+                setCookie("availableRooms" ,availableRooms.toString());
+                document.getElementById('result').innerHTML = "You have successfully check into " + roomTitle.toString() +  " "+ roomNo.toString();
+
         }
-    }
+        
+			
+			
+	
 }
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function checkRoom() {
-
-    if (document.cookie === null) {
-
-        document.getElementById("search").style.display = "none";
-
-    }
-
-    else {
-        document.getElementsByClass("room-group").style.display = "none";
-    }
-    // check if cookie is null
-    // else return room number
-
-    //Get room number
-
-    // if room is available return room number 
-    // if room is not available return null 
-
-
-
-}
-
-function showAvalRoom() {      
-        var avalRoom = getCookie(avalRoom).toString();    
-      for (var room of avalRoom.split()) 
+function showAvalRoom() { 
+    var availableRooms =getCookie("availableRooms") ;
+               if (availableRooms === '') {
+                    availableRooms = '';
+               } 
+        //an array for test,
+      var availableRoomsToArray =  [1,7,14,20]; //availableRooms.split(",");
+      
+       if ( availableRoomsToArray.length > 0) {
+            var roomno;
+        for (var i =0 ; i < availableRoomsToArray.length; i++ ) 
         {         
-            document.getElementsByName(room).enable = false ;
-       } 
+            roomno = availableRoomsToArray[i].toString();
+            document.getElementById(roomno).disabled = true ;
+            document.getElementById(roomno).style.backgroundColor  = "#939393";
+        }
+         //location.reload();
+       }
 };
 
 
-function search(roomno) {
-    var 
-    var avalRooms = getCookie(availableRoom) ;
-        if (avalRooms === " "){
-        setCookie(availableRoom, roomno.toString());
-    }
-
-   else {
-        avalRooms += ',' + roomno.toString();
-
-       setCookie(availableRoom, avalRooms.toString());
-    }
-    location.reload();
-}
