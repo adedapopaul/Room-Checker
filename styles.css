@@ -56,40 +56,6 @@
     box-sizing: border-box;
     transition: all 0.15s;
 }
-::-webkit-input-placeholder { /* WebKit browsers */
-    color: white;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: white;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: white;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: white;
-}
-#search_text:focus {
-    background: rgb(64, 151, 119);
-}
-#search_button {
-    border: 2px;
-    background: #566573   url(image/search.png) center no-repeat;
-    width: 60px;
-    float: left;
-    padding: 0;
-    text-align: center;
-    height: 52px;
-    cursor: pointer;
-}
-#options a{
-    border-left: 0 none;
-}
-#options>a {
-    background-image: url(triangle.png);
-    background-position: 85% center;
-    background-repeat: no-repeat;
-    padding-right: 42px;
-}
 .subnav {
     visibility: hidden;
     position: absolute;
@@ -113,15 +79,37 @@
     opacity: 1;
 }
 
-.logo {
-  border-top: 4px solid #648880;
+.andela {
+
   float: left;
   font-size: 48px;
   font-weight: 100;
   letter-spacing: .5px;
   line-height: 44px;
-  padding: 40px 0 22px 0;
   text-transform: uppercase;
+  width: 23%;
+  padding: 10px;
+  
+}
+
+.roomCheck {
+  float: right;
+  font-size: 48px;
+  font-weight: 100;
+  letter-spacing: .5px;
+  line-height: 44px;
+  text-transform: uppercase;
+  width: 75%;
+  padding: 10px;
+  margin-top: -100px;
+  text-align: right;
+}
+
+.room-group{
+text-align:center;
+
+
+
 }
 .tagline {
   margin: 66px 0 22px 0;
@@ -155,43 +143,55 @@ section {
 
 .sleeping {
 	float: left;
-	border: 2px solid black;
 	margin-left: 20px;
 	margin-right: 20px;
 	text-align: center;
 	width: 200px;
+	margin-top:1px;
+	text-align:center;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-left:100px
 }
 
 .working {
 	float: left;
-	border: 2px solid black;
 	margin-right: 20px;
 	text-align: center;
 	width: 200px;
+	text-align:center;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .meetings {
 	float: left;
-	border: 2px solid black;
 	margin-right: 20px;
 	text-align: center;
 	width: 200px;
+	text-align:center;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .games {
 	float: left;
-	border: 2px solid black;
 	margin-right: 20px;
 	text-align: center;
 	width: 200px;
+	text-align:center;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .quitetime {
 	float: left;
-	border: 2px solid black;
 	/* margin-right: 20px; */
 	text-align: center;
 	width: 230px;
+	text-align:center;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .clear-fix {
@@ -201,9 +201,34 @@ section {
 footer {
 	margin-top: 30px;
 	color: white;
+	bottom:0px;
+	position:fixed;
+	width:98%;
+	border-radius : 15px;
 }
 
 footer p {
 	font-size: 1.5rem;
 	margin-right: 10px;
+}
+
+button {  
+	
+	background-color:#000066;
+	border-width:0px;
+	color:#FFFFFF; 
+	font-size:20px; 
+  margin-bottom: 5px;
+  margin-top: 5px;
+
+
+}
+
+.result { 
+  color: #000066; 
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-top: 70px
+
+
 }
