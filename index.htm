@@ -8,6 +8,7 @@
 		<title> Room Checker App</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<link href="https://fonts.googleapis.com/css?family=Merriweather|Rubik" rel="stylesheet">
+		<script src="search.js"></script>
 	</head>
 	<body>
 		<header class="branch group">
@@ -53,7 +54,7 @@
 	      <h2>Sleeping Rooms</h2>
 
 	      <p>Book for available rooms. </p>
-	      <input type="radio" name="sleeping" value="room85">Room 85	<br />
+	      <input type="radio" name="sleeping" value="room85" >Room 85	<br />
 	      <input type="radio" name="sleeping" value="room86">Room 86	<br />
 	      <input type="radio" name="sleeping" value="room87">Room 87	<br />
 	      <input type="radio" name="sleeping" value="room88">Room 88	<br />
@@ -87,7 +88,7 @@
 	      <h2>Games Rooms</h2>
 
 	      <p>Book for available rooms. </p>
-	       <input type="radio" name="games" value="room97" />Room 97 	<br />
+	       <input type="radio" name="games" value="room97" onclick=search("room97"); />Room 97 	<br />
 	      <input type="radio" name="games" value="room98" />Room 98	<br />
 	      <input type="radio" name="games" value="room99" />Room 99	<br />
 	      <input type="radio" name="games" value="room100" />Room 100	<br />
@@ -97,8 +98,6 @@
 	    <section class="quitetime">
 
 	      <h2>Quite Time Rooms</h2>
-
-	      <p>Book for available rooms. </p>
 	      <p>Book for available rooms. </p>
 	       <input type="radio" name="quitetime" value="room101">Room 101 	<br />
 	      <input type="radio" name="quitetime" value="room102">Room 102	<br />
@@ -108,17 +107,15 @@
 	    </section>
 	   </div>
     </form>
-
+    <br />
+    <br />
+    <div class="clear-fix"></div>
     <footer class="primary-footer " >
 
       <nav class="nav">
-        <small >&copy;Andela BootCamp 2017. Front End Lab</small>
+        <p>&copy;Andela BootCamp 2017. Front End Lab</p>
       </nav>
     </footer>
-
-
-
-
 
 	</body>
 </html>
