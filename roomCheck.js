@@ -27,31 +27,56 @@ function checkCookie() {
     }
 }
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 function checkRoom() {
 
-	if (document.cookie === null) {
+    if (document.cookie === null) {
 
-		document.getElementById("myP1").style.display = "none";
+        document.getElementById("search").style.display = "none";
 
-	}
-
-	else {
-		return 'room not available';
-	}
-	// check if cookie is null
-	// else return room number
-
-	//Get room number
-
-	// if room is available return room number 
-	// if room is not available return null	
-
-	var checkedValue = null; 
-    
-    if(inputElements[i].checked){
-           checkedValue = inputElements[i].value;
- 
     }
 
+    else {
+        document.getElementsByClass("room-group").style.display = "none";
+    }
+    // check if cookie is null
+    // else return room number
+
+    //Get room number
+
+    // if room is available return room number 
+    // if room is not available return null 
+
+
+
 }
+
+function showAvalRoom() {      
+        var avalRoom = getCookie(avalRoom).toString();    
+      for (var room of avalRoom.split()) 
+        {         
+            document.getElementsByName(room).enable = false ;
+       } 
+};
+
+
+function search(roomno) {
+    var 
+    var avalRooms = getCookie(availableRoom) ;
+        if (avalRooms === " "){
+        setCookie(availableRoom, roomno.toString());
+    }
+
+   else {
+        avalRooms += ',' + roomno.toString();
+
+       setCookie(availableRoom, avalRooms.toString());
+    }
+    location.reload();
+}f
